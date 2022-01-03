@@ -112,7 +112,7 @@ class Uploader:
 
     def sign_transaction(self):
         def sign():
-            self.__driver.find_element_by_xpath('//*[@id="app-content"]/div/div[2]/div/div[3]/button[2]').click()
+            self.__driver.find_element_by_xpath('//*[@id="app-content"]/div/div[3]/div/div[3]/button[2]').click()
             sleep(1)
         self.__metamask_execute(sign)
 
@@ -123,7 +123,7 @@ class Uploader:
 
         self.__collection_url = collection_url
 
-    def upload(self, asset_path: str, name: str):
+    def upload(self, asset_path: str, name: str, description: str, external_link: str, properties):
         '''
         Upload a single NFT to OpenSea.
         '''
@@ -135,6 +135,13 @@ class Uploader:
         # Input the data
         self.__driver.find_element_by_xpath('//*[@id="media"]').send_keys(asset_path)
         self.__driver.find_element_by_xpath('//*[@id="name"]').send_keys(name)
+        self.__driver.find_element_by_xpath('//*[@id="description"]').send_keys(description)
+        self.__driver.find_element_by_xpath('//*[@id="external_link"]').send_keys(external_link)
+
+        # Properties
+        self.__driver.find_element_by_xpath('//*[@id="__next"]/div[1]/main/div/div/section/div[1]/form/section/div[1]/div/div[2]/button').click()
+        sleep(100000)
+
 
         # =================================
         # Add your other NFT metadata here

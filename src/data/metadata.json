@@ -1,6 +1,19 @@
 [
     {
         "name": "Test NFT #1",
-        "asset": "test1.png"
+        "asset": "test1.png",
+        "properties": {
+            "prop1": "prop_value1"
+        },
+        "levels": {
+            "name": "name_value1",
+            "value": 1,
+            "max_value": 5
+        },
+        "stats": {
+            "name": "name_value1",
+            "value": 2,
+            "max_value": 4
+        }
     }
 ]
