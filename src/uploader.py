@@ -204,10 +204,6 @@ class Uploader:
             self.__driver.find_element_by_xpath('/html/body/div[4]/div/div/div/section/button').click()
         self.__driver.find_element_by_xpath('/html/body/div[4]/div/div/div/footer/button').click()
 
-
-        sleep(200000)
-
-
         # =================================
         # Add your other NFT metadata here
         # =================================
