@@ -1,4 +1,5 @@
 from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
 from time import sleep
 import os
 
@@ -161,16 +162,20 @@ class Uploader:
         for i, stat in enumerate(levels):
             if (i == 0):
                 self.__driver.find_element_by_xpath(f'/html/body/div[3]/div/div/div/section/table/tbody/tr/td[1]/div/div/input').send_keys(stat["name"])
-                self.__driver.find_element_by_xpath(f'/html/body/div[3]/div/div/div/section/table/tbody/tr/td[3]/div/div/input').clear()
-                self.__driver.find_element_by_xpath(f'/html/body/div[3]/div/div/div/section/table/tbody/tr/td[3]/div/div/input').send_keys(str(stat["max_value"]))
-                self.__driver.find_element_by_xpath(f'/html/body/div[3]/div/div/div/section/table/tbody/tr/td[2]/div/div/input').clear()
-                self.__driver.find_element_by_xpath(f'/html/body/div[3]/div/div/div/section/table/tbody/tr/td[2]/div/div/input').send_keys(str(stat["value"]))
+                maxValueElement = self.__driver.find_element_by_xpath(f'/html/body/div[3]/div/div/div/section/table/tbody/tr/td[3]/div/div/input')
+                maxValueElement.sendKeys(Keys.CONTROL + "a")
+                maxValueElement.send_keys(str(stat["max_value"]))
+                valueElement = self.__driver.find_element_by_xpath(f'/html/body/div[3]/div/div/div/section/table/tbody/tr/td[2]/div/div/input')
+                valueElement.sendKeys(Keys.CONTROL + "a")
+                valueElement.send_keys(str(stat["value"]))
             else:
                 self.__driver.find_element_by_xpath(f'/html/body/div[3]/div/div/div/section/table/tbody/tr[{i + 1}]/td[1]/div/div/input').send_keys(stat["name"])
-                self.__driver.find_element_by_xpath(f'/html/body/div[3]/div/div/div/section/table/tbody/tr/td[3]/div/div/input').clear()
-                self.__driver.find_element_by_xpath(f'/html/body/div[3]/div/div/div/section/table/tbody/tr[{i + 1}]/td[3]/div/div/input').send_keys(str(stat["max_value"]))
-                self.__driver.find_element_by_xpath(f'/html/body/div[3]/div/div/div/section/table/tbody/tr/td[2]/div/div/input').clear()
-                self.__driver.find_element_by_xpath(f'/html/body/div[3]/div/div/div/section/table/tbody/tr[{i + 1}]/td[2]/div/div/input').send_keys(str(stat["value"]))
+                maxValueElement = self.__driver.find_element_by_xpath(f'/html/body/div[3]/div/div/div/section/table/tbody/tr[{i + 1}]/td[3]/div/div/input')
+                maxValueElement.sendKeys(Keys.CONTROL + "a")
+                maxValueElement.send_keys(str(stat["max_value"]))
+                valueElement = self.__driver.find_element_by_xpath(f'/html/body/div[3]/div/div/div/section/table/tbody/tr[{i + 1}]/td[2]/div/div/input')
+                valueElement.sendKeys(Keys.CONTROL + "a")
+                valueElement.send_keys(str(stat["value"]))
 
             self.__driver.find_element_by_xpath('/html/body/div[3]/div/div/div/section/button').click()
         self.__driver.find_element_by_xpath('/html/body/div[3]/div/div/div/footer/button').click()
