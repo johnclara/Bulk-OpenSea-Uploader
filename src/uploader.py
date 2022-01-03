@@ -48,6 +48,10 @@ class Uploader:
         self.__driver.find_element_by_xpath('//*[@id="app-content"]/div/div[2]/div/div/form/button').click()
         sleep(2)
 
+        # Click all done
+        self.__driver.find_element_by_xpath('//*[@id="app-content"]/div/div[2]/div/div/button').click()
+        sleep(2)
+
     def set_network(self, rpc_url: str, chain_id: int, preconfigured_network: int = None):
         '''
         Sets the specified network to Metamask and selects it. Also adds it if it is not a default network.

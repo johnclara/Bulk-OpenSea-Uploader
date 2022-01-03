@@ -1,6 +1,7 @@
 import os
 import dotenv
 from uploader import Uploader
+from time import sleep
 import json
 
 def main():
