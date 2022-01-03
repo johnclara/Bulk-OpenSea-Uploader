@@ -145,11 +145,13 @@ class Uploader:
 
         # Properties
         self.__driver.find_element_by_xpath('//*[@id="__next"]/div[1]/main/div/div/section/div[2]/form/section/div[1]/div/div[2]/button').click()
-        property = properties
-        self.__driver.find_element_by_xpath('/html/body/div[2]/div/div/div/section/table/tbody/tr/td[1]/div/div/input').send_keys(property["prop_name"])
-        self.__driver.find_element_by_xpath('/html/body/div[2]/div/div/div/section/table/tbody/tr/td[2]/div/div/input').send_keys(property["prop_value"])
+        for property in properties:
+            self.__driver.find_element_by_xpath('/html/body/div[2]/div/div/div/section/table/tbody/tr/td[1]/div/div/input').send_keys(property["prop_name"])
+            self.__driver.find_element_by_xpath('/html/body/div[2]/div/div/div/section/table/tbody/tr/td[2]/div/div/input').send_keys(property["prop_value"])
 
+            self.__driver.find_element_by_xpath('/html/body/div[2]/div/div/div/section/button').click()
         self.__driver.find_element_by_xpath('/html/body/div[2]/div/div/div/footer/button').click()
+
 
         sleep(200000)
 

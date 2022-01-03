@@ -2,10 +2,14 @@
     {
         "name": "Test NFT #1",
         "asset": "cat.gif",
-        "properties": {
-            "prop_name": "prop_name1",
-            "prop_value": "prop_value1"
-        },
+        "properties": [{
+                "prop_name": "prop_name1",
+                "prop_value": "prop_value1"
+            },{
+                "prop_name": "prop_name2",
+                "prop_value": "prop_value2"
+            }
+        ],
         "levels": {
             "name": "name_value1",
             "value": 1,
