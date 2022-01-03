@@ -20,7 +20,7 @@ def main():
     # Connect to the specified network - ENTER THE APPROPRIATE NETWORK
     NETWORK_RPC = "https://ropsten.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161"
     CHAIN_ID = 3
-    uploader.set_network(NETWORK_RPC, CHAIN_ID) # Custom network to add to Metamask
+    #uploader.set_network(NETWORK_RPC, CHAIN_ID) # Custom network to add to Metamask
     uploader.open_metamask()
     # uploader.set_network("", 0, 1) # Use a default network provided by Metamask
 

@@ -49,6 +49,7 @@ class Uploader:
         sleep(2)
 
         # Click all done
+        self.__driver.get(f"{self.__METAMASK_URL}#initialize/end-of-flow")
         self.__driver.find_element_by_xpath('//*[@id="app-content"]/div/div[2]/div/div/button').click()
         sleep(2)
 
@@ -143,8 +144,14 @@ class Uploader:
         self.__driver.find_element_by_xpath('//*[@id="external_link"]').send_keys(external_link)
 
         # Properties
-        self.__driver.find_element_by_xpath('//*[@id="__next"]/div[1]/main/div/div/section/div[1]/form/section/div[1]/div/div[2]/button').click()
-        sleep(100000)
+        self.__driver.find_element_by_xpath('//*[@id="__next"]/div[1]/main/div/div/section/div[2]/form/section/div[1]/div/div[2]/button').click()
+        property = properties
+        self.__driver.find_element_by_xpath('/html/body/div[2]/div/div/div/section/table/tbody/tr/td[1]/div/div/input').send_keys(property["prop_name"])
+        self.__driver.find_element_by_xpath('/html/body/div[2]/div/div/div/section/table/tbody/tr/td[2]/div/div/input').send_keys(property["prop_value"])
+
+        self.__driver.find_element_by_xpath('/html/body/div[2]/div/div/div/footer/button').click()
+
+        sleep(200000)
 
 
         # =================================
