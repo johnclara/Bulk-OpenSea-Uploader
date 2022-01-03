@@ -118,7 +118,7 @@ class Uploader:
 
     def sign_transaction(self):
         def sign():
-            self.__driver.find_element_by_xpath('//*[@id="app-content"]/div/div[3]/div/div[3]/button[2]').click()
+            self.__driver.find_element_by_xpath('//*[@id="app-content"]/div/div[2]/div/div[3]/button[2]').click()
             sleep(1)
         self.__metamask_execute(sign)
 
