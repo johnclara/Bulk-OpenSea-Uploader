@@ -158,15 +158,19 @@ class Uploader:
 
         # Levels
         self.__driver.find_element_by_xpath('//*[@id="__next"]/div[1]/main/div/div/section/div[2]/form/section/div[2]/div/div[2]/button').click()
-        for i, level in enumerate(levels):
+        for i, stat in enumerate(levels):
             if (i == 0):
-                self.__driver.find_element_by_xpath(f'/html/body/div[3]/div/div/div/section/table/tbody/tr/td[1]/div/div/input').send_keys(level["level_name"])
-                self.__driver.find_element_by_xpath(f'/html/body/div[3]/div/div/div/section/table/tbody/tr/td[2]/div/div/input').send_keys(str(level["level_value"]))
-                self.__driver.find_element_by_xpath(f'/html/body/div[3]/div/div/div/section/table/tbody/tr/td[3]/div/div/input').send_keys(str(level["level_max_value"]))
+                self.__driver.find_element_by_xpath(f'/html/body/div[3]/div/div/div/section/table/tbody/tr/td[1]/div/div/input').send_keys(stat["name"])
+                self.__driver.find_element_by_xpath(f'/html/body/div[3]/div/div/div/section/table/tbody/tr/td[3]/div/div/input').clear()
+                self.__driver.find_element_by_xpath(f'/html/body/div[3]/div/div/div/section/table/tbody/tr/td[3]/div/div/input').send_keys(str(stat["max_value"]))
+                self.__driver.find_element_by_xpath(f'/html/body/div[3]/div/div/div/section/table/tbody/tr/td[2]/div/div/input').clear()
+                self.__driver.find_element_by_xpath(f'/html/body/div[3]/div/div/div/section/table/tbody/tr/td[2]/div/div/input').send_keys(str(stat["value"]))
             else:
-                self.__driver.find_element_by_xpath(f'/html/body/div[3]/div/div/div/section/table/tbody/tr[{i + 1}]/td[1]/div/div/input').send_keys(level["level_name"])
-                self.__driver.find_element_by_xpath(f'/html/body/div[3]/div/div/div/section/table/tbody/tr[{i + 1}]/td[2]/div/div/input').send_keys(str(level["level_value"]))
-                self.__driver.find_element_by_xpath(f'/html/body/div[3]/div/div/div/section/table/tbody/tr[{i + 1}]/td[3]/div/div/input').send_keys(str(level["level_max_value"]))
+                self.__driver.find_element_by_xpath(f'/html/body/div[3]/div/div/div/section/table/tbody/tr[{i + 1}]/td[1]/div/div/input').send_keys(stat["name"])
+                self.__driver.find_element_by_xpath(f'/html/body/div[3]/div/div/div/section/table/tbody/tr/td[3]/div/div/input').clear()
+                self.__driver.find_element_by_xpath(f'/html/body/div[3]/div/div/div/section/table/tbody/tr[{i + 1}]/td[3]/div/div/input').send_keys(str(stat["max_value"]))
+                self.__driver.find_element_by_xpath(f'/html/body/div[3]/div/div/div/section/table/tbody/tr/td[2]/div/div/input').clear()
+                self.__driver.find_element_by_xpath(f'/html/body/div[3]/div/div/div/section/table/tbody/tr[{i + 1}]/td[2]/div/div/input').send_keys(str(stat["value"]))
 
             self.__driver.find_element_by_xpath('/html/body/div[3]/div/div/div/section/button').click()
         self.__driver.find_element_by_xpath('/html/body/div[3]/div/div/div/footer/button').click()

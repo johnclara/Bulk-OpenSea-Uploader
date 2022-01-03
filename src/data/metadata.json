@@ -11,13 +11,13 @@
             }
         ],
         "levels": [{
-            "level_name": "level_name1",
-            "level_value": 1,
-            "level_max_value": 5
+            "name": "level_name1",
+            "value": 1,
+            "max_value": 5
         },{
-                    "level_name": "level_name2",
-                    "level_value": 2,
-                    "level_max_value": 4
+                    "name": "level_name2",
+                    "value": 2,
+                    "max_value": 4
                 }
         ],
         "stats": {
