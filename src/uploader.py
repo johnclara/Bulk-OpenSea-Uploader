@@ -163,18 +163,18 @@ class Uploader:
             if (i == 0):
                 self.__driver.find_element_by_xpath(f'/html/body/div[3]/div/div/div/section/table/tbody/tr/td[1]/div/div/input').send_keys(stat["name"])
                 maxValueElement = self.__driver.find_element_by_xpath(f'/html/body/div[3]/div/div/div/section/table/tbody/tr/td[3]/div/div/input')
-                maxValueElement.sendKeys(Keys.COMMAND + "a")
+                maxValueElement.send_keys(Keys.COMMAND + "a")
                 maxValueElement.send_keys(str(stat["max_value"]))
                 valueElement = self.__driver.find_element_by_xpath(f'/html/body/div[3]/div/div/div/section/table/tbody/tr/td[2]/div/div/input')
-                valueElement.sendKeys(Keys.COMMAND + "a")
+                valueElement.send_keys(Keys.COMMAND + "a")
                 valueElement.send_keys(str(stat["value"]))
             else:
                 self.__driver.find_element_by_xpath(f'/html/body/div[3]/div/div/div/section/table/tbody/tr[{i + 1}]/td[1]/div/div/input').send_keys(stat["name"])
                 maxValueElement = self.__driver.find_element_by_xpath(f'/html/body/div[3]/div/div/div/section/table/tbody/tr[{i + 1}]/td[3]/div/div/input')
-                maxValueElement.sendKeys(Keys.COMMAND + "a")
+                maxValueElement.send_keys(Keys.COMMAND + "a")
                 maxValueElement.send_keys(str(stat["max_value"]))
                 valueElement = self.__driver.find_element_by_xpath(f'/html/body/div[3]/div/div/div/section/table/tbody/tr[{i + 1}]/td[2]/div/div/input')
-                valueElement.sendKeys(Keys.COMMAND + "a")
+                valueElement.send_keys(Keys.COMMAND + "a")
                 valueElement.send_keys(str(stat["value"]))
 
             self.__driver.find_element_by_xpath('/html/body/div[3]/div/div/div/section/button').click()
