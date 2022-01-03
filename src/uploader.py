@@ -129,7 +129,7 @@ class Uploader:
 
         self.__collection_url = collection_url
 
-    def upload(self, asset_path: str, name: str, description: str, external_link: str, properties, levels):
+    def upload(self, asset_path: str, name: str, description: str, external_link: str, properties, levels, stats):
         '''
         Upload a single NFT to OpenSea.
         '''
@@ -179,6 +179,30 @@ class Uploader:
 
             self.__driver.find_element_by_xpath('/html/body/div[3]/div/div/div/section/button').click()
         self.__driver.find_element_by_xpath('/html/body/div[3]/div/div/div/footer/button').click()
+
+        # Stats
+
+        self.__driver.find_element_by_xpath('//*[@id="__next"]/div[1]/main/div/div/section/div[2]/form/section/div[3]/div/div[2]/button').click()
+        for i, stat in enumerate(stats):
+            if (i == 0):
+                self.__driver.find_element_by_xpath(f'/html/body/div[4]/div/div/div/section/table/tbody/tr/td[1]/div/div/input').send_keys(stat["name"])
+                maxValueElement = self.__driver.find_element_by_xpath(f'/html/body/div[4]/div/div/div/section/table/tbody/tr/td[3]/div/div/input')
+                maxValueElement.send_keys(Keys.COMMAND + "a")
+                maxValueElement.send_keys(str(stat["max_value"]))
+                valueElement = self.__driver.find_element_by_xpath(f'/html/body/div[4]/div/div/div/section/table/tbody/tr/td[2]/div/div/input')
+                valueElement.send_keys(Keys.COMMAND + "a")
+                valueElement.send_keys(str(stat["value"]))
+            else:
+                self.__driver.find_element_by_xpath(f'/html/body/div[4]/div/div/div/section/table/tbody/tr[{i + 1}]/td[1]/div/div/input').send_keys(stat["name"])
+                maxValueElement = self.__driver.find_element_by_xpath(f'/html/body/div[4]/div/div/div/section/table/tbody/tr[{i + 1}]/td[3]/div/div/input')
+                maxValueElement.send_keys(Keys.COMMAND + "a")
+                maxValueElement.send_keys(str(stat["max_value"]))
+                valueElement = self.__driver.find_element_by_xpath(f'/html/body/div[4]/div/div/div/section/table/tbody/tr[{i + 1}]/td[2]/div/div/input')
+                valueElement.send_keys(Keys.COMMAND + "a")
+                valueElement.send_keys(str(stat["value"]))
+
+            self.__driver.find_element_by_xpath('/html/body/div[4]/div/div/div/section/button').click()
+        self.__driver.find_element_by_xpath('/html/body/div[4]/div/div/div/footer/button').click()
 
 
         sleep(200000)

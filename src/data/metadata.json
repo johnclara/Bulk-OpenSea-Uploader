@@ -20,10 +20,15 @@
                     "max_value": 4
                 }
         ],
-        "stats": {
-            "name": "name_value1",
-            "value": 2,
-            "max_value": 4
+        "stats": [{
+            "name": "stats_name1",
+            "value": 1,
+            "max_value": 5
+        },{
+                    "name": "stats_name2",
+                    "value": 2,
+                    "max_value": 4
         }
+        ]
     }
 ]
