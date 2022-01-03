@@ -1,6 +1,6 @@
 [
     {
-        "name": "Test NFT #1",
+        "name": "Test NFT #2",
         "asset": "cat.gif",
         "properties": [{
                 "prop_name": "prop_name1",
@@ -30,5 +30,37 @@
                     "max_value": 4
         }
         ]
+    },
+  {
+    "name": "Test NFT #3",
+    "asset": "cat.gif",
+    "properties": [{
+      "prop_name": "prop_name2",
+      "prop_value": "prop_value2"
+    },{
+      "prop_name": "prop_name3",
+      "prop_value": "prop_value4"
     }
+    ],
+    "levels": [{
+      "name": "level_name2",
+      "value": 1,
+      "max_value": 5
+    },{
+      "name": "level_name3",
+      "value": 2,
+      "max_value": 4
+    }
+    ],
+    "stats": [{
+      "name": "stats_name2",
+      "value": 1,
+      "max_value": 4
+    },{
+      "name": "stats_name3",
+      "value": 2,
+      "max_value": 5
+    }
+    ]
+  }
 ]
